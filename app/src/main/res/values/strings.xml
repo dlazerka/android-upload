@@ -15,8 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">Rx Upload</string>
-    <string name="app_name_long">Rx Upload Progress Example</string>
+    <string name="app_name">Upload Progress Example</string>
 
     <string name="intro_guide">Select a picture or take one</string>
     <string name="take_photo">Take photo</string>

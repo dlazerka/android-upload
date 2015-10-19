@@ -120,7 +120,7 @@ public class UploadService extends IntentService {
         notificationBuilder = new Notification.Builder(this)
                 .setSmallIcon(R.drawable.upload_gray)
                 .setLargeIcon(bitmap)
-                .setContentTitle(getString(R.string.app_name_long));
+                .setContentTitle(getString(R.string.app_name));
     }
 
     @Override
