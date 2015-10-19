@@ -1,0 +1,69 @@
+/*
+ * Copyright (c) 2015 Dzmitry Lazerka
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId 'name.dlazerka.androidupload'
+        minSdkVersion 16
+        versionCode 1
+        versionName '1.1'
+    }
+    packagingOptions {
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/NOTICE.txt'
+//        exclude 'META-INF/license.txt'
+//        exclude 'META-INF/notice.txt'
+//        exclude 'LICENSE.txt'
+//        exclude 'NOTICE.txt'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFile 'proguard-project.pro'
+
+            proguardFile 'proguard-guava.pro'
+            proguardFile 'proguard-rx-java.pro'
+            proguardFile 'proguard-square-okhttp.pro'
+            proguardFile 'proguard-square-okio.pro'
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+    lintOptions {
+        // When running gradle from command line, Lint fails for "java.nio.file. Referenced from okio.Okio."
+        warning 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'org.slf4j:slf4j-android:1.7.12'
+
+    provided 'com.google.code.findbugs:jsr305:2.0.3'
+
+    testCompile 'junit:junit:4.12'
+
+    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+}
