@@ -99,7 +99,7 @@ public class UploadActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload_status);
+        setContentView(R.layout.activity_upload);
 
         choiceFormat = new ChoiceFormat(getString(R.string.rate_choice));
         rateNumberFormat = new DecimalFormat(getString(R.string.rate_number_format));

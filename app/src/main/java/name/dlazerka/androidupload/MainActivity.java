@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
         File image = File.createTempFile(
-                getPackageName() + "_",
+                getString(R.string.photo_file_prefix),
                 ".jpg",
                 storageDir
         );
